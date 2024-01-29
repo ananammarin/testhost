@@ -215,8 +215,6 @@ document.getElementById('runNode').addEventListener('click', async () => {
   // Reset the output and loading indicator
   document.getElementById('output').innerText = '';
   document.getElementById('loadingIndicator').style.display = 'block';
-  document.getElementById('title').value = data.title.substring(0, 80);
-
 
   try {
     // Get the URL value from the input

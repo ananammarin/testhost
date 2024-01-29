@@ -249,7 +249,9 @@ app.get('/runNode', async (req, res) => {
         });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ message: 'พบข้อผิดพลาดในการดึงข้อมูล (ส่งผลลัพธ์กลับไปที่ index.html)' });
+        console.error(error.message);  // Log the error message
+        console.error(error.stack);    // Log the error stack trace
+        res.status(500).json({ message: 'Internal Server Error' });
     }
 });
 
