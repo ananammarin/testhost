@@ -1,0 +1,5 @@
+services:
+  - name: puppeteer-render
+    type: web
+    buildCommand: npm install
+    startCommand: node render.js
