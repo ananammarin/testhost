@@ -3,6 +3,9 @@ const axios = require('axios');
 const puppeteer = require('puppeteer');
 const app = express();
 const bodyParser = require('body-parser');
+const puppeteer = require('puppeteer-core');
+
+
 app.use(bodyParser.json());
 app.use(express.static('public'));
 app.get('/', (req, res) => {
