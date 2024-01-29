@@ -222,45 +222,123 @@ document.getElementById('runNode').addEventListener('click', async () => {
     // Send the URL value to the server
     const response = await fetch(`/runNode?url=${encodeURIComponent(inputUrl)}`);
     const data = await response.json();
+
+    // Check and update values only if the properties exist
+    if (data.title) {
+      document.getElementById('title').value = data.title.substring(0, 80);
+    }
+    if (data.titleEng) {
+      document.getElementById('titleEng').value = data.titleEng.substring(0, 70);
+    }
+    if (data.subdistrict) {
+      document.getElementById('subdistrict').value = data.subdistrict;
+    }
+    if (data.subdistrictEng) {
+      document.getElementById('subdistrictEng').value = data.subdistrictEng;
+    }
+    if (data.district) {
+      document.getElementById('district').value = data.district;
+    }
+    if (data.districtEng) {
+      document.getElementById('districtEng').value = data.districtEng;
+    }
+    if (data.province) {
+      document.getElementById('province').value = data.province;
+    }
+    if (data.provinceEng) {
+      document.getElementById('provinceEng').value = data.provinceEng;
+    }
+    if (data.mapLink) {
+      document.getElementById('mapLink').value = data.mapLink;
+    }
+    if (data.latitude) {
+      document.getElementById('latitude').value = data.latitude;
+    }
+    if (data.longitude) {
+      document.getElementById('longitude').value = data.longitude;
+    }
+    if (data.rai) {
+      document.getElementById('rai').value = data.rai;
+    }
+    if (data.ngan) {
+      document.getElementById('ngan').value = data.ngan;
+    }
+    if (data.squareWah) {
+      document.getElementById('squareWah').value = data.squareWah;
+    }
+    if (data.price) {
+      document.getElementById('price').value = data.price;
+    }
+    if (data.cityPlan) {
+      document.getElementById('cityPlan').value = data.cityPlan;
+    }
+    if (data.cityPlanEng) {
+      document.getElementById('cityPlanEng').value = data.cityPlanEng;
+    }
+    if (data.yor) {
+      document.getElementById('yor').value = data.yor;
+    }
+    if (data.yorEng) {
+      document.getElementById('yorEng').value = data.yorEng;
+    }
+    if (data.far) {
+      document.getElementById('far').value = data.far;
+    }
+    if (data.cityPlanProvince) {
+      document.getElementById('cityPlanProvince').value = data.cityPlanProvince;
+    }
+    if (data.cityPlanProvinceEng) {
+      document.getElementById('cityPlanProvinceEng').value = data.cityPlanProvinceEng;
+    }
+    if (data.futureCityPlan) {
+      document.getElementById('futureCityPlan').value = data.futureCityPlan;
+    }
+    if (data.futureCityPlanEng) {
+      document.getElementById('futureCityPlanEng').value = data.futureCityPlanEng;
+    }
+    if (data.yorfutureCityPlan) {
+      document.getElementById('yorfutureCityPlan').value = data.yorfutureCityPlan;
+    }
+    if (data.yorfutureCityPlanEng) {
+      document.getElementById('yorfutureCityPlanEng').value = data.yorfutureCityPlanEng;
+    }
+    if (data.faryorfutureCityPlan) {
+      document.getElementById('faryorfutureCityPlan').value = data.faryorfutureCityPlan;
+    }
+    if (data.cityPlanProvincefuture) {
+      document.getElementById('cityPlanProvincefuture').value = data.cityPlanProvincefuture;
+    }
+    if (data.cityPlanProvincefutureEng) {
+      document.getElementById('cityPlanProvincefutureEng').value = data.cityPlanProvincefutureEng;
+    }
+    if (data.width) {
+      document.getElementById('width').value = data.width;
+    }
+    if (data.roadWidth) {
+      document.getElementById('roadWidth').value = data.roadWidth;
+    }
+    if (data.noConstruction) {
+      document.getElementById('noConstruction').value = data.noConstruction;
+    }
+    if (data.noConstructionEng) {
+      document.getElementById('noConstructionEng').value = data.noConstructionEng;
+    }
+    if (data.nearby) {
+      document.getElementById('nearby').value = data.nearby.replace(/<li>/g, '');
+    }
+    if (data.nearbyEng) {
+      document.getElementById('nearbyEng').value = data.nearbyEng.replace(/<li>/g, '');
+    }
+    if (data.descriptionThai) {
+      document.getElementById('descriptionThai').innerHTML = data.descriptionThai;
+    }
+    if (data.descriptionEng) {
+      document.getElementById('descriptionEng').innerHTML = data.descriptionEng;
+    }
+    // Continue with other properties...
+
     // Display the result from the received Node.js code
     document.getElementById('output').innerText = data.message;
-    document.getElementById('title').value = data.title.substring(0, 80);
-    document.getElementById('titleEng').value = data.titleEng.substring(0, 70);
-    document.getElementById('subdistrict').value = data.subdistrict;
-    document.getElementById('subdistrictEng').value = data.subdistrictEng;
-    document.getElementById('district').value = data.district;
-    document.getElementById('districtEng').value = data.districtEng;
-    document.getElementById('province').value = data.province;
-    document.getElementById('provinceEng').value = data.provinceEng;
-    document.getElementById('mapLink').value = data.mapLink;
-    document.getElementById('latitude').value = data.latitude;
-    document.getElementById('longitude').value = data.longitude;
-    document.getElementById('rai').value = data.rai;
-    document.getElementById('ngan').value = data.ngan;
-    document.getElementById('squareWah').value = data.squareWah;
-    document.getElementById('price').value = data.price;
-    document.getElementById('cityPlan').value = data.cityPlan;
-    document.getElementById('cityPlanEng').value = data.cityPlanEng;
-    document.getElementById('yor').value = data.yor;
-    document.getElementById('yorEng').value = data.yorEng;
-    document.getElementById('far').value = data.far;
-    document.getElementById('cityPlanProvince').value = data.cityPlanProvince;
-    document.getElementById('cityPlanProvinceEng').value = data.cityPlanProvinceEng;
-    document.getElementById('futureCityPlan').value = data.futureCityPlan;
-    document.getElementById('futureCityPlanEng').value = data.futureCityPlanEng;
-    document.getElementById('yorfutureCityPlan').value = data.yorfutureCityPlan;
-    document.getElementById('yorfutureCityPlanEng').value = data.yorfutureCityPlanEng;
-    document.getElementById('faryorfutureCityPlan').value = data.faryorfutureCityPlan;
-    document.getElementById('cityPlanProvincefuture').value = data.cityPlanProvincefuture;
-    document.getElementById('cityPlanProvincefutureEng').value = data.cityPlanProvincefutureEng;
-    document.getElementById('width').value = data.width;
-    document.getElementById('roadWidth').value = data.roadWidth;
-    document.getElementById('noConstruction').value = data.noConstruction;
-    document.getElementById('noConstructionEng').value = data.noConstructionEng;
-    document.getElementById('nearby').value = data.nearby.replace(/<li>/g, '');
-    document.getElementById('nearbyEng').value = data.nearbyEng.replace(/<li>/g, '');
-    document.getElementById('descriptionThai').innerHTML = data.descriptionThai;
-    document.getElementById('descriptionEng').innerHTML = data.descriptionEng;
   } catch (error) {
     // Handle errors here, for example, display an error message
     console.error('Error during fetching:', error);
@@ -270,6 +348,7 @@ document.getElementById('runNode').addEventListener('click', async () => {
     document.getElementById('loadingIndicator').style.display = 'none';
   }
 });
+
 
 
 function validateForm() {
