@@ -3,9 +3,6 @@ const axios = require('axios');
 const puppeteer = require('puppeteer');
 const app = express();
 const bodyParser = require('body-parser');
-const puppeteer = require('puppeteer-core');
-
-
 app.use(bodyParser.json());
 app.use(express.static('public'));
 app.get('/', (req, res) => {
@@ -252,9 +249,7 @@ app.get('/runNode', async (req, res) => {
         });
     } catch (error) {
         console.error(error);
-        console.error(error.message);  // Log the error message
-        console.error(error.stack);    // Log the error stack trace
-        res.status(500).json({ message: 'Internal Server Error' });
+        res.status(500).json({ message: 'พบข้อผิดพลาดในการดึงข้อมูล (ส่งผลลัพธ์กลับไปที่ index.html)' });
     }
 });
 
